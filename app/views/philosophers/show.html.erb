@@ -1,0 +1,24 @@
+
+
+<div class="jumbotron">
+  <h1 class="display-4">
+  <%= @philosopher.first_name %>
+ <%= @philosopher.last_name %>
+  </h1>
+  <p class="lead"><%= @philosopher.school %> | <%= @philosopher.nation %> | <%= @philosopher.best_work %></p>
+  <br>
+  
+  <p class="lead">
+    <%= link_to "Edit", edit_philosopher_path(@philosopher), class:"btn btn-outline-secondary" %> 
+  <%= link_to "Back", philosophers_path, class:"btn btn-outline-dark" %>
+  </p>
+</div>
+
+
+<div>
+  
+
+  <p>
+
+  <%= button_to "Destroy this philosopher", @philosopher, method: :delete, class:"btn btn-outline-danger"  %>
+</div>

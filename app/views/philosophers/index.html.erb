@@ -1,0 +1,45 @@
+
+<% if user_signed_in? %>
+<h1>Philosophers</h1>
+
+<table class="table table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>School</th>
+      <th>Nation</th>
+      <th>Best work</th>
+      <th>User id</th>
+      <th colspan="3"></th>
+    </tr>  
+  </thead>
+
+    <tbody>
+      <% @philosophers.each do |philosopher| %>
+        <% if philosopher.user == current_user %>
+        
+        <tr>  
+          <td><%= philosopher.first_name %></td>
+          <td><%= philosopher.last_name %></td>
+          <td><%= philosopher.school %></td>
+          <td><%= philosopher.nation %></td>
+          <td><%= philosopher.best_work %></td>
+          <td><%= philosopher.user_id %></td>
+          <td><%= link_to "Show", philosopher %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>      
+</table>  
+
+<%= link_to "New philosopher", new_philosopher_path, class:"btn btn-light" %>
+
+<% else %> 
+
+<h1>Entrance</h1>
+<p1>Algazel welcomes you into his domain.</p1> 
+
+<%= link_to "Sign in", new_user_session_path %> to make your way in.
+
+<% end %>
